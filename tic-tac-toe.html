@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tic tac toe</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+*{
+padding:0px;
+margin:0px;
+background:black;
+color:white;
+}
+#score,#winner{
+display:flex;
+width:100%;
+height:7vh;
+font-size:20px;
+}
+#score p{
+display: grid;
+width:50vw;
+place-items:center;
+margin-top:5vh;
+}
+#game p{
+position:relative;
+top:5vh;
+width:31.6%;
+display: inline-block;
+height:23vh;
+border:2px solid black;
+}
+hr{
+width:98%;
+margin:5px;
+padding:0;
+border:1px solid black;
+}
+#res{
+display:grid;
+place-items: center;
+justify-content:center;
+}
+#res button{
+border:solid black 2px;
+font-size:30px;
+transition:0.2s;
+}
+#res button:hover{
+font-size:34px;
+}
+#winner{
+display:grid;
+text-align:center;
+place-items:center;
+}
+</style>
+</head>
+<body>
+<div id="score">
+<p id="red">    Let's play</p>
+<p id="blue">Tic-Tac-Toe     </p>
+</div>
+<hr>
+<span id="game">
+<div id="row1">
+<p id="c11" onClick="colot1()"></p>
+<p id="c12" onClick="colot2()"></p>
+<p id="c13" onClick="colot3()"></p>
+</div>
+<div id="row2">
+<p id="c14" onClick="colot4()"></p>
+<p id="c15" onClick="colot5()"></p>
+<p id="c16" onClick="colot6()"></p>
+</div>
+<div id="row3">
+<p id="c17" onClick="colot7()"></p>
+<p id="c18" onClick="colot8()"></p>
+<p id="c19" onClick="colot9()"></p>
+</div>
+</span>
+<hr>
+<div id="winner">
+
+</div>
+<div id="res">
+<button  onClick="reset()">Replay</button>
+</div>
+</body>
+<script type="text/javascript">
+var turn=true;
+var w=document.getElementById("winner");
+var w1="a";
+var w2="c";
+var w3="d";
+var w4="e";
+var w5="f";
+var w6="g";
+var w7="h";
+var w8="i";
+var w9="j";
+var rs=0;
+var bs=0;
+var z=1;
+var q=0;
+var q1=0;
+var q2=0;
+var q3=0;
+var q4=0;
+var q5=0;
+var q6=0;
+var q7=0;
+var q8=0;
+var q9=0;
+var c1=document.getElementById("c11");
+var c2=document.getElementById("c12");
+var c3=document.getElementById("c13");
+var c4=document.getElementById("c14");
+var c5=document.getElementById("c15");
+var c6=document.getElementById("c16");
+var c7=document.getElementById("c17");
+var c8=document.getElementById("c18");
+var c9=document.getElementById("c19");
+c1.style.background="white";
+c2.style.background="white";
+c3.style.background="white";
+c4.style.background="white";
+c5.style.background="white";
+c6.style.background="white";
+c7.style.background="white";
+c8.style.background="white";
+c9.style.background="white";
+p1="pink";
+p2="orange";
+n1=document.getElementById("red");
+n2=document.getElementById("blue");
+n1.innerHTML=localStorage.getItem("firstname");
+n2.innerHTML=localStorage.getItem("secondname");
+function colot1(){
+if(!q1){
+q1=1;
+if(turn){
+c1.style.background=p1;
+w1="r";
+}
+else{
+c1.style.background=p2;
+w1="b";
+}
+turn= !turn;
+winner();}
+}
+function colot2(){
+if(!q2){
+q2=1
+if(turn){
+c2.style.background=p1;
+w2="r";
+}
+else{
+c2.style.background=p2;
+w2="b";}
+turn= !turn;
+winner();}
+}
+function colot3(){
+if(!q3){
+q3=1;
+if(turn){
+c3.style.background=p1;
+w3="r";}
+else{
+c3.style.background=p2;
+w3="b";}
+turn= !turn;
+winner();
+}}
+function colot4(){
+if(!q4){
+q4=1;
+if(turn){
+c4.style.background=p1;
+w4="r";}
+else{
+c4.style.background=p2;
+w4="b";}
+turn=!turn;
+winner();
+}}
+function colot5(){
+if(!q5){
+q5=1;
+if(turn){
+c5.style.background=p1;
+w5="r";}
+else{
+c5.style.background=p2;
+w5="b";}
+turn=!turn;
+winner();
+}}
+function colot6(){
+if(!q6){
+q6=1;
+if(turn){
+c6.style.background=p1;
+w6="r";}
+else{
+c6.style.background=p2;
+w6="b";}
+turn= !turn;
+winner();
+}}
+function colot7(){
+if(!q7){
+q7=1;
+if(turn){
+c7.style.background=p1;
+w7="r";}
+else{
+c7.style.background=p2;
+w7="b";}
+turn=!turn;
+winner();
+}}
+function colot8(){
+if(!q8){
+q8=1;
+if(turn){
+c8.style.background=p1;
+w8="r";}
+else{
+c8.style.background=p2;
+w8="b";}
+turn=!turn;
+winner();
+}}
+function colot9(){
+if(!q9){
+q9=1;
+if(turn){
+c9.style.background=p1;
+w9="r";}
+else{
+c9.style.background=p2;
+w9="b";}
+turn=!turn;
+winner();
+}}
+function winner(){
+if(w1==w2 && w2==w3 && z){
+z=0;
+if(w1=="r"){
+w.innerHTML="WINNER:", n1;
+}
+else if(w1=="b"){
+w.innerHTML="WINNER:", n2;
+}
+}
+else if(w4==w5 && w5==w6 &&z){
+z=0;
+if(w4=="r"){
+w.innerHTML="WINNER:", n1;
+}
+else if(w4=="b"){
+w.innerHTML="WINNER:", n2;
+}
+}
+else if(w7==w8 && w8==w9 &&z){
+z=0;
+if(w7=="r"){
+w.innerHTML="WINNER:", n1;
+}
+else if(w7=="b"){
+w.innerHTML="WINNER:", n2;
+}
+}
+else if(w1==w4 && w4==w7 &&z){
+z=0;
+if(w1=="r"){
+w.innerHTML="WINNER:", n1;
+}
+else if(w1=="b"){
+w.innerHTML="WINNER:", n2;
+}
+}
+else if(w5==w2 && w2==w8 &&z){
+z=0;
+if(w5=="r"){
+w.innerHTML="WINNER:", n1;
+}
+else if(w5=="b"){
+w.innerHTML="WINNER:", n2;
+}
+}
+else if(w9==w6 && w6==w3 &&z){
+z=0;
+if(w6=="r"){
+w.innerHTML="WINNER:", n1;
+}
+else if(w6=="b"){
+w.innerHTML="WINNER:", n2;
+}
+}
+else if(w1==w5 && w5==w9 &&z){
+z=0;
+if(w1=="r"){
+w.innerHTML="WINNER:", n1;
+}
+if(w1=="b"){
+w.innerHTML="WINNER:", n2;
+}
+}
+else if(w3==w5 && w5==w7 &&z){
+z=0;
+if(w3=="r"){
+w.innerHTML="WINNER:", n1;
+}
+else if(w3=="b"){
+w.innerHTML="WINNER:", n2;
+}
+}
+if(w.innerHTML=="WINNER:", n1 && q==0){
+q=1;
+rs=rs+1;
+}
+if(w.innerHTML=="WINNER:", n2 && q==0){
+q=1;
+bs=bs+1;
+}
+red.innerHTML="P1 SCORE:"+rs;
+blue.innerHTML="P2 SCORE:"+bs;
+}
+function reset(){
+turn=true; w1="a";  w2="c"; w3="d"; w4="e"; w5="f";  w6="g"; w7="h"; w8="i"; w9="j"; z=1; q1=0; q2=0; q3=0; q4=0; q5=0; q6=0; q7=0; q8=0; q9=0; q=0;
+c1.style.background="white";
+c2.style.background="white";
+c3.style.background="white";
+c4.style.background="white";
+c5.style.background="white";
+c6.style.background="white";
+c7.style.background="white";
+c8.style.background="white";
+c9.style.background="white";
+w.innerHTML="";
+console.log("one more game!");
+}
+</script>
+</html>
